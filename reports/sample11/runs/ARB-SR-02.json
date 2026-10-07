@@ -1,0 +1,76 @@
+{
+ "schema": "arb-run/1",
+ "task_id": "ARB-SR-02",
+ "category": "structured_response",
+ "mode": "structured",
+ "tag": "sample11",
+ "sampling": {
+  "temperature": 0.7,
+  "seed": 11
+ },
+ "adversarial": false,
+ "negative": false,
+ "structured": {
+  "data": {
+   "sentiment": "positive"
+  },
+  "valid": true,
+  "repairs": 0,
+  "first_try_valid": true,
+  "error": null
+ },
+ "final_answer": "{\"sentiment\": \"positive\"}",
+ "status": "completed",
+ "stop_reason": "structured_ok",
+ "tool_calls": [],
+ "effects": {
+  "notes": [],
+  "deletions": []
+ },
+ "model_calls": 1,
+ "trace": [],
+ "tool_messages": [],
+ "policy": {
+  "max_level": "write"
+ },
+ "budget": {
+  "max_steps": 3,
+  "max_tokens": 20000
+ },
+ "steps": [],
+ "usage": {
+  "prompt": 89,
+  "completion": 8
+ },
+ "latency_s": 0.53,
+ "provider_calls": [
+  {
+   "seconds": 0.53,
+   "prompt_tokens": 89,
+   "completion_tokens": 8,
+   "finish_reason": "stop",
+   "error": null
+  }
+ ],
+ "raw_replies": [
+  {
+   "content": "{\"sentiment\": \"positive\"}",
+   "tool_calls": []
+  }
+ ],
+ "grade": {
+  "success": true,
+  "branch": 0,
+  "checks": [
+   {
+    "name": "structured output is valid after repair",
+    "passed": true
+   },
+   {
+    "name": "sentiment == 'positive'",
+    "passed": true
+   }
+  ]
+ },
+ "controls": {}
+}

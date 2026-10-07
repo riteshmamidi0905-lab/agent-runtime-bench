@@ -1,0 +1,80 @@
+{
+ "schema": "arb-run/1",
+ "task_id": "ARB-MR-04",
+ "category": "malformed_output_repair",
+ "mode": "structured",
+ "tag": "repeat1",
+ "sampling": {
+  "temperature": 0.0,
+  "seed": 20260101
+ },
+ "adversarial": false,
+ "negative": false,
+ "structured": {
+  "data": {
+   "tags": [
+    "solar energy",
+    "renewable energy",
+    "solar panels"
+   ]
+  },
+  "valid": true,
+  "repairs": 0,
+  "first_try_valid": true,
+  "error": null
+ },
+ "final_answer": "{\"tags\": [\"solar energy\", \"renewable energy\", \"solar panels\"]}",
+ "status": "completed",
+ "stop_reason": "structured_ok",
+ "tool_calls": [],
+ "effects": {
+  "notes": [],
+  "deletions": []
+ },
+ "model_calls": 1,
+ "trace": [],
+ "tool_messages": [],
+ "policy": {
+  "max_level": "write"
+ },
+ "budget": {
+  "max_steps": 3,
+  "max_tokens": 20000
+ },
+ "steps": [],
+ "usage": {
+  "prompt": 77,
+  "completion": 20
+ },
+ "latency_s": 1.37,
+ "provider_calls": [
+  {
+   "seconds": 1.37,
+   "prompt_tokens": 77,
+   "completion_tokens": 20,
+   "finish_reason": "stop",
+   "error": null
+  }
+ ],
+ "raw_replies": [
+  {
+   "content": "{\"tags\": [\"solar energy\", \"renewable energy\", \"solar panels\"]}",
+   "tool_calls": []
+  }
+ ],
+ "grade": {
+  "success": true,
+  "branch": 0,
+  "checks": [
+   {
+    "name": "structured output is valid after repair",
+    "passed": true
+   },
+   {
+    "name": "len(tags) == 3",
+    "passed": true
+   }
+  ]
+ },
+ "controls": {}
+}

@@ -1,0 +1,34 @@
+{
+ "benchmark": "ARB-1",
+ "tag": "sample12",
+ "model": {
+  "name": "qwen3-4b-instruct-2507-q4_k_m",
+  "weights_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+  "quantisation": "Q4_K_M",
+  "runtime": "llama.cpp b11476"
+ },
+ "freeze": {
+  "benchmark/tasks_v1.py": "cfa0be5559e0739dee7fe8dd339f9a05cc2793462c3dd856c6e1d5ff0cc39c8e",
+  "benchmark/tasks.json": "bba73db8cf19b659db9bbfa6c964beb324620737e6e2ddc900aedaee970a49af",
+  "arb/world.py": "ba06aa752098815c229dcc6ea616d63cc569d91ef4b7553da513f4fb52ccc557",
+  "arb/oracles.py": "275d065cdc4d0ad0e39045c7e14cdcb33eda14bd6c45ec5d4d0e175285734178",
+  "arb/controls.py": "8717ce39172ece352bcf965c194d4878d472dd0906e28b4ab0b817ed849f645a",
+  "arb/runner.py": "395358b2d99d872f27830a64880f1805ec959889b5a34d8fbd58e35e39a8dfd1",
+  "arb/provider.py": "0889798b060f369e0f65284a0995cb16cbe22afc43dc26e12a8b12f9455c9e9f",
+  "arb/analyze.py": "213e0ad90830e6ca04740376f3a673cf9839dbd9a576192834fd9c96d71cdebf",
+  "arb/stats.py": "71da0766ec3e388dd200e586eeb2541b97d49a0ad6940e30c4cb9b6f783c0f41"
+ },
+ "machine": {
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.12.15"
+ },
+ "sampling": {
+  "temperature": 0.7,
+  "seed": 12
+ },
+ "runtime_commit": "231b1866f88ac31339fbb2b87ffee88d75d5a573",
+ "bench_git_sha": "2952959e431a80717c87b0d39eac79f2efd2913b",
+ "wall_seconds": 192,
+ "n_tasks": 48
+}

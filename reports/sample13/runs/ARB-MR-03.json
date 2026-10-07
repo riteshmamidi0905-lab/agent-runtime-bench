@@ -1,0 +1,81 @@
+{
+ "schema": "arb-run/1",
+ "task_id": "ARB-MR-03",
+ "category": "malformed_output_repair",
+ "mode": "structured",
+ "tag": "sample13",
+ "sampling": {
+  "temperature": 0.7,
+  "seed": 13
+ },
+ "adversarial": false,
+ "negative": false,
+ "structured": {
+  "data": {
+   "city": "Lyon",
+   "country": "France"
+  },
+  "valid": true,
+  "repairs": 0,
+  "first_try_valid": true,
+  "error": null
+ },
+ "final_answer": "{\"city\": \"Lyon\", \"country\": \"France\"}",
+ "status": "completed",
+ "stop_reason": "structured_ok",
+ "tool_calls": [],
+ "effects": {
+  "notes": [],
+  "deletions": []
+ },
+ "model_calls": 1,
+ "trace": [],
+ "tool_messages": [],
+ "policy": {
+  "max_level": "write"
+ },
+ "budget": {
+  "max_steps": 3,
+  "max_tokens": 20000
+ },
+ "steps": [],
+ "usage": {
+  "prompt": 93,
+  "completion": 14
+ },
+ "latency_s": 0.96,
+ "provider_calls": [
+  {
+   "seconds": 0.96,
+   "prompt_tokens": 93,
+   "completion_tokens": 14,
+   "finish_reason": "stop",
+   "error": null
+  }
+ ],
+ "raw_replies": [
+  {
+   "content": "{\"city\": \"Lyon\", \"country\": \"France\"}",
+   "tool_calls": []
+  }
+ ],
+ "grade": {
+  "success": true,
+  "branch": 0,
+  "checks": [
+   {
+    "name": "structured output is valid after repair",
+    "passed": true
+   },
+   {
+    "name": "city == 'Lyon'",
+    "passed": true
+   },
+   {
+    "name": "country == 'France'",
+    "passed": true
+   }
+  ]
+ },
+ "controls": {}
+}

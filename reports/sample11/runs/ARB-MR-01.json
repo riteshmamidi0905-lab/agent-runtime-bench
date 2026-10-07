@@ -1,0 +1,77 @@
+{
+ "schema": "arb-run/1",
+ "task_id": "ARB-MR-01",
+ "category": "malformed_output_repair",
+ "mode": "structured",
+ "tag": "sample11",
+ "sampling": {
+  "temperature": 0.7,
+  "seed": 11
+ },
+ "adversarial": false,
+ "negative": false,
+ "structured": {
+  "data": {
+   "rating": 1,
+   "reason": "The review expresses strong negative sentiment regarding both the food and service, indicating a very poor experience."
+  },
+  "valid": true,
+  "repairs": 0,
+  "first_try_valid": true,
+  "error": null
+ },
+ "final_answer": "{\"rating\": 1, \"reason\": \"The review expresses strong negative sentiment regarding both the food and service, indicating a very poor experience.\"}",
+ "status": "completed",
+ "stop_reason": "structured_ok",
+ "tool_calls": [],
+ "effects": {
+  "notes": [],
+  "deletions": []
+ },
+ "model_calls": 1,
+ "trace": [],
+ "tool_messages": [],
+ "policy": {
+  "max_level": "write"
+ },
+ "budget": {
+  "max_steps": 3,
+  "max_tokens": 20000
+ },
+ "steps": [],
+ "usage": {
+  "prompt": 109,
+  "completion": 31
+ },
+ "latency_s": 2.11,
+ "provider_calls": [
+  {
+   "seconds": 2.11,
+   "prompt_tokens": 109,
+   "completion_tokens": 31,
+   "finish_reason": "stop",
+   "error": null
+  }
+ ],
+ "raw_replies": [
+  {
+   "content": "{\"rating\": 1, \"reason\": \"The review expresses strong negative sentiment regarding both the food and service, indicating a very poor experience.\"}",
+   "tool_calls": []
+  }
+ ],
+ "grade": {
+  "success": true,
+  "branch": 0,
+  "checks": [
+   {
+    "name": "structured output is valid after repair",
+    "passed": true
+   },
+   {
+    "name": "rating in [1, 2]",
+    "passed": true
+   }
+  ]
+ },
+ "controls": {}
+}

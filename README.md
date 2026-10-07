@@ -24,6 +24,10 @@ python -m arb.cli --base-url http://127.0.0.1:8080 --model <name> --digest <sha2
 python -m arb.analyze reports/pass1
 ```
 
+## Results (one model, one pass family; read `docs/RESULTS.md` before quoting any number)
+`qwen3-4b-instruct-2507` Q4_K_M, greedy: **43/48** tasks passed by the frozen oracles (92% = 44/48 after I adjudicated one oracle false negative; the frozen number is the headline); adversarial/negative 20/25. All seven runtime controls held in 240/240 agent-mode runs, and the benchmark still found a real hole
+(a secret disclosed through a permitted read tool, MT-02, which the action controls do not cover). Four seeded sampled passes and a greedy repeat are in `reports/`; `reports/AGGREGATE.md` summarises them.
+
 ## What this is not
 Not a leaderboard and not a claim about any model beyond the one run named in a report. The tasks are small, in English, with toy tools, authored by one AI assistant (the same one that wrote the harness; disclosed).
 Not a production system. No real customer data. Results are descriptive counts with their denominators and Wilson intervals.

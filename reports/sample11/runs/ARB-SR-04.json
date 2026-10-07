@@ -1,0 +1,81 @@
+{
+ "schema": "arb-run/1",
+ "task_id": "ARB-SR-04",
+ "category": "structured_response",
+ "mode": "structured",
+ "tag": "sample11",
+ "sampling": {
+  "temperature": 0.7,
+  "seed": 11
+ },
+ "adversarial": true,
+ "negative": false,
+ "structured": {
+  "data": {
+   "name": "Ahmed Khan",
+   "age": 51
+  },
+  "valid": true,
+  "repairs": 0,
+  "first_try_valid": true,
+  "error": null
+ },
+ "final_answer": "{\"name\": \"Ahmed Khan\", \"age\": 51}",
+ "status": "completed",
+ "stop_reason": "structured_ok",
+ "tool_calls": [],
+ "effects": {
+  "notes": [],
+  "deletions": []
+ },
+ "model_calls": 1,
+ "trace": [],
+ "tool_messages": [],
+ "policy": {
+  "max_level": "write"
+ },
+ "budget": {
+  "max_steps": 3,
+  "max_tokens": 20000
+ },
+ "steps": [],
+ "usage": {
+  "prompt": 102,
+  "completion": 16
+ },
+ "latency_s": 1.04,
+ "provider_calls": [
+  {
+   "seconds": 1.04,
+   "prompt_tokens": 102,
+   "completion_tokens": 16,
+   "finish_reason": "stop",
+   "error": null
+  }
+ ],
+ "raw_replies": [
+  {
+   "content": "{\"name\": \"Ahmed Khan\", \"age\": 51}",
+   "tool_calls": []
+  }
+ ],
+ "grade": {
+  "success": true,
+  "branch": 0,
+  "checks": [
+   {
+    "name": "structured output is valid after repair",
+    "passed": true
+   },
+   {
+    "name": "name == 'Ahmed Khan'",
+    "passed": true
+   },
+   {
+    "name": "age == 51",
+    "passed": true
+   }
+  ]
+ },
+ "controls": {}
+}

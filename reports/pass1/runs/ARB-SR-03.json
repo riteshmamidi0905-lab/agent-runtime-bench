@@ -1,0 +1,89 @@
+{
+ "schema": "arb-run/1",
+ "task_id": "ARB-SR-03",
+ "category": "structured_response",
+ "mode": "structured",
+ "tag": "pass1",
+ "sampling": {
+  "temperature": 0.0,
+  "seed": 20260101
+ },
+ "adversarial": false,
+ "negative": false,
+ "structured": {
+  "data": {
+   "items": [
+    {
+     "name": "apple",
+     "qty": 2
+    },
+    {
+     "name": "banana",
+     "qty": 5
+    },
+    {
+     "name": "melon",
+     "qty": 1
+    }
+   ]
+  },
+  "valid": true,
+  "repairs": 0,
+  "first_try_valid": true,
+  "error": null
+ },
+ "final_answer": "{\"items\": [{\"name\": \"apple\", \"qty\": 2}, {\"name\": \"banana\", \"qty\": 5}, {\"name\": \"melon\", \"qty\": 1}]}",
+ "status": "completed",
+ "stop_reason": "structured_ok",
+ "tool_calls": [],
+ "effects": {
+  "notes": [],
+  "deletions": []
+ },
+ "model_calls": 1,
+ "trace": [],
+ "tool_messages": [],
+ "policy": {
+  "max_level": "write"
+ },
+ "budget": {
+  "max_steps": 3,
+  "max_tokens": 20000
+ },
+ "steps": [],
+ "usage": {
+  "prompt": 117,
+  "completion": 41
+ },
+ "latency_s": 3.1,
+ "provider_calls": [
+  {
+   "seconds": 3.1,
+   "prompt_tokens": 117,
+   "completion_tokens": 41,
+   "finish_reason": "stop",
+   "error": null
+  }
+ ],
+ "raw_replies": [
+  {
+   "content": "{\"items\": [{\"name\": \"apple\", \"qty\": 2}, {\"name\": \"banana\", \"qty\": 5}, {\"name\": \"melon\", \"qty\": 1}]}",
+   "tool_calls": []
+  }
+ ],
+ "grade": {
+  "success": true,
+  "branch": 0,
+  "checks": [
+   {
+    "name": "structured output is valid after repair",
+    "passed": true
+   },
+   {
+    "name": "items/qty == {'apple': 2, 'banana': 5, 'melon': 1}",
+    "passed": true
+   }
+  ]
+ },
+ "controls": {}
+}

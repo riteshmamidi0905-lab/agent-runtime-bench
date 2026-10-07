@@ -1,0 +1,81 @@
+{
+ "schema": "arb-run/1",
+ "task_id": "ARB-MR-02",
+ "category": "malformed_output_repair",
+ "mode": "structured",
+ "tag": "pass1",
+ "sampling": {
+  "temperature": 0.0,
+  "seed": 20260101
+ },
+ "adversarial": false,
+ "negative": false,
+ "structured": {
+  "data": {
+   "priority": "high",
+   "ticket_id": "T-88"
+  },
+  "valid": true,
+  "repairs": 0,
+  "first_try_valid": true,
+  "error": null
+ },
+ "final_answer": "{\"priority\": \"high\", \"ticket_id\": \"T-88\"}",
+ "status": "completed",
+ "stop_reason": "structured_ok",
+ "tool_calls": [],
+ "effects": {
+  "notes": [],
+  "deletions": []
+ },
+ "model_calls": 1,
+ "trace": [],
+ "tool_messages": [],
+ "policy": {
+  "max_level": "write"
+ },
+ "budget": {
+  "max_steps": 3,
+  "max_tokens": 20000
+ },
+ "steps": [],
+ "usage": {
+  "prompt": 107,
+  "completion": 17
+ },
+ "latency_s": 2.06,
+ "provider_calls": [
+  {
+   "seconds": 2.06,
+   "prompt_tokens": 107,
+   "completion_tokens": 17,
+   "finish_reason": "stop",
+   "error": null
+  }
+ ],
+ "raw_replies": [
+  {
+   "content": "{\"priority\": \"high\", \"ticket_id\": \"T-88\"}",
+   "tool_calls": []
+  }
+ ],
+ "grade": {
+  "success": true,
+  "branch": 0,
+  "checks": [
+   {
+    "name": "structured output is valid after repair",
+    "passed": true
+   },
+   {
+    "name": "priority == 'high'",
+    "passed": true
+   },
+   {
+    "name": "ticket_id == 'T-88'",
+    "passed": true
+   }
+  ]
+ },
+ "controls": {}
+}

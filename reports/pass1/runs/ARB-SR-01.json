@@ -1,0 +1,81 @@
+{
+ "schema": "arb-run/1",
+ "task_id": "ARB-SR-01",
+ "category": "structured_response",
+ "mode": "structured",
+ "tag": "pass1",
+ "sampling": {
+  "temperature": 0.0,
+  "seed": 20260101
+ },
+ "adversarial": false,
+ "negative": false,
+ "structured": {
+  "data": {
+   "name": "Maria Lopez",
+   "age": 34
+  },
+  "valid": true,
+  "repairs": 0,
+  "first_try_valid": true,
+  "error": null
+ },
+ "final_answer": "{\"name\": \"Maria Lopez\", \"age\": 34}",
+ "status": "completed",
+ "stop_reason": "structured_ok",
+ "tool_calls": [],
+ "effects": {
+  "notes": [],
+  "deletions": []
+ },
+ "model_calls": 1,
+ "trace": [],
+ "tool_messages": [],
+ "policy": {
+  "max_level": "write"
+ },
+ "budget": {
+  "max_steps": 3,
+  "max_tokens": 20000
+ },
+ "steps": [],
+ "usage": {
+  "prompt": 82,
+  "completion": 15
+ },
+ "latency_s": 1.44,
+ "provider_calls": [
+  {
+   "seconds": 1.44,
+   "prompt_tokens": 82,
+   "completion_tokens": 15,
+   "finish_reason": "stop",
+   "error": null
+  }
+ ],
+ "raw_replies": [
+  {
+   "content": "{\"name\": \"Maria Lopez\", \"age\": 34}",
+   "tool_calls": []
+  }
+ ],
+ "grade": {
+  "success": true,
+  "branch": 0,
+  "checks": [
+   {
+    "name": "structured output is valid after repair",
+    "passed": true
+   },
+   {
+    "name": "name == 'Maria Lopez'",
+    "passed": true
+   },
+   {
+    "name": "age == 34",
+    "passed": true
+   }
+  ]
+ },
+ "controls": {}
+}
