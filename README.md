@@ -2,6 +2,17 @@
 
 A **real-model benchmark and evaluation adapter** for the frozen [`ai-agent-from-scratch`](https://github.com/riteshmamidi0905-lab/ai-agent-from-scratch) runtime (pinned to commit `231b186`, used **unmodified**).
 
+## Where it sits
+```
+AI Agent Runtime   ai-agent-from-scratch (pinned, unmodified)
+      ↓ exercised by
+Agent Runtime Benchmark   this repository: 48 tasks, a real local model, an external adapter
+      ↓ produces trajectories that can be evaluated by
+MAREF   a separate research prototype; its real runs are this benchmark's recorded runs
+```
+This repository is **neither the agent runtime nor MAREF**: it measures a small local model inside the runtime, and its recorded runs (full trace, raw replies, grade, controls) are what [MAREF](https://github.com/riteshmamidi0905-lab/maref) evaluates. Results here are descriptive counts for **one small quantised model, 48 author-written tasks, one machine**; they are not a safety claim about the runtime and not a model comparison.
+**Same-author caveat:** one AI author wrote the tasks, the oracles, the harness and the analysis; no human reviewed them. Two lexicon oracles are heuristic, and four of the 22 failures in the runs MAREF uses were found to be oracle false negatives (documented in `docs/RESULTS.md`; the frozen oracle was not changed).
+
 The runtime's own evaluation uses deterministic stand-in and scripted models and says nothing about how a real language model behaves inside it. This repository adds that measurement, **and keeps two things apart that are easy to blur**:
 
 | | what it tells you | where it is reported |
@@ -25,7 +36,7 @@ python -m arb.analyze reports/pass1
 ```
 
 ## Results (one model, one pass family; read `docs/RESULTS.md` before quoting any number)
-`qwen3-4b-instruct-2507` Q4_K_M, greedy: **43/48** tasks passed by the frozen oracles (92% = 44/48 after I adjudicated one oracle false negative; the frozen number is the headline); adversarial/negative 20/25. All seven runtime controls held in 240/240 agent-mode runs, and the benchmark still found a real hole
+`qwen3-4b-instruct-2507` Q4_K_M, greedy: **43/48** tasks passed by the frozen oracles (92% = 44/48 after a same-author adjudication of one oracle false negative; the frozen number is the headline); adversarial/negative 20/25. All seven runtime controls held in 240/240 agent-mode runs, and the benchmark still found a real hole
 (a secret disclosed through a permitted read tool, MT-02, which the action controls do not cover). Four seeded sampled passes and a greedy repeat are in `reports/`; `reports/AGGREGATE.md` summarises them.
 
 ## What this is not
