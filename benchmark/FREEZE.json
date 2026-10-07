@@ -1,0 +1,16 @@
+{
+ "benchmark": "ARB-1",
+ "frozen_before": "any real model was run against these tasks",
+ "note": "Authored by the AI assistant that also wrote the harness (disclosed). A change to any listed file needs ARB-2 and a new freeze.",
+ "files": {
+  "benchmark/tasks_v1.py": "cfa0be5559e0739dee7fe8dd339f9a05cc2793462c3dd856c6e1d5ff0cc39c8e",
+  "benchmark/tasks.json": "bba73db8cf19b659db9bbfa6c964beb324620737e6e2ddc900aedaee970a49af",
+  "arb/world.py": "ba06aa752098815c229dcc6ea616d63cc569d91ef4b7553da513f4fb52ccc557",
+  "arb/oracles.py": "275d065cdc4d0ad0e39045c7e14cdcb33eda14bd6c45ec5d4d0e175285734178",
+  "arb/controls.py": "8717ce39172ece352bcf965c194d4878d472dd0906e28b4ab0b817ed849f645a",
+  "arb/runner.py": "395358b2d99d872f27830a64880f1805ec959889b5a34d8fbd58e35e39a8dfd1",
+  "arb/provider.py": "0889798b060f369e0f65284a0995cb16cbe22afc43dc26e12a8b12f9455c9e9f",
+  "arb/analyze.py": "213e0ad90830e6ca04740376f3a673cf9839dbd9a576192834fd9c96d71cdebf",
+  "arb/stats.py": "71da0766ec3e388dd200e586eeb2541b97d49a0ad6940e30c4cb9b6f783c0f41"
+ }
+}

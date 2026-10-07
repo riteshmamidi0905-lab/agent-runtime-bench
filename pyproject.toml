@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-runtime-bench"
+version = "0.1.0"
+description = "Real-model benchmark and evaluation adapter for the frozen ai-agent-from-scratch runtime (pinned commit). Separates model behaviour from runtime-control behaviour."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  # The frozen runtime, pinned to a commit. Never a branch, never a tag that can move. It is used unmodified.
+  "ai-agent-from-scratch @ git+https://github.com/riteshmamidi0905-lab/ai-agent-from-scratch.git@231b1866f88ac31339fbb2b87ffee88d75d5a573",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5", "jsonschema>=4"]
+
+[tool.setuptools.packages.find]
+include = ["arb*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 170
+target-version = "py310"
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501", "E731", "E741", "B007", "UP037"]       # the frozen benchmark files are hash-locked: style is not worth an ARB-2
