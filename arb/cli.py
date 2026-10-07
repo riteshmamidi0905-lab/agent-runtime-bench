@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import platform
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -52,7 +53,7 @@ def main(argv=None) -> int:
         print(f"{t['id']:<11} {t['category']:<24} status={r['status']}/{r.get('stop_reason')} success={r['grade']['success']} controls={'ok' if not bad else 'VIOLATED ' + ','.join(bad)} {r['latency_s']}s", flush=True)
     summary = {"benchmark": bench["benchmark"], "tag": a.tag, "model": {"name": a.model, "weights_sha256": a.digest, "quantisation": a.quant, "runtime": a.runtime},
                "freeze": freeze["files"], "machine": {"platform": platform.platform(), "machine": platform.machine(), "python": platform.python_version()}, "sampling": {"temperature": a.temperature, "seed": a.seed},
-               "runtime_commit": "231b1866f88ac31339fbb2b87ffee88d75d5a573", "wall_seconds": round(time.time() - t_start), "n_tasks": len(runs)}
+               "runtime_commit": "231b1866f88ac31339fbb2b87ffee88d75d5a573", "bench_git_sha": subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"], capture_output=True, text=True, check=False).stdout.strip(), "wall_seconds": round(time.time() - t_start), "n_tasks": len(runs)}
     (dest / "summary.json").write_text(json.dumps(summary, indent=1) + "\n")
     print(json.dumps({"tasks": len(runs), "success": sum(r["grade"]["success"] for r in runs), "control_violations": sum(1 for r in runs for v in r["controls"].values() if not v)}))
     return 0
